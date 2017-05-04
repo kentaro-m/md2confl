@@ -1,10 +1,16 @@
 package confluence
 
 import (
+  "fmt"
+
   "github.com/kentaro-m/blackfriday"
 )
 
-func Convert(input []byte) string {
+type Confluence struct {
+  Contents string
+}
+
+func (c *Confluence) Convert(input []byte) {
   renderer := blackfriday.ConfluenceRenderer(0)
 	extensions := 0
 	extensions |= blackfriday.EXTENSION_FENCED_CODE
@@ -13,6 +19,9 @@ func Convert(input []byte) string {
 	extensions |= blackfriday.EXTENSION_NO_EMPTY_LINE_BEFORE_BLOCK
 
   output := blackfriday.Markdown(input, renderer, extensions)
+  c.Contents = string(output)
+}
 
-  return string(output)
+func (c *Confluence) Preview() {
+  fmt.Println(c.Contents)
 }

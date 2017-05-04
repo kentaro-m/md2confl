@@ -1,11 +1,9 @@
 package cmd
 
 import (
-	"fmt"
-
 	"github.com/spf13/cobra"
-	"github.com/atotto/clipboard"
-	"github.com/kentaro-m/md2confl/util"
+	"github.com/kentaro-m/md2confl/utils/util"
+	"github.com/kentaro-m/md2confl/utils/file"
 	"github.com/kentaro-m/md2confl/confluence"
 )
 
@@ -17,10 +15,14 @@ var copyCmd = &cobra.Command{
 }
 
 func copy(cmd *cobra.Command, args []string) error {
-	data := util.ReadFile(args[0])
-	output := confluence.Convert(data)
-	fmt.Println("Copied to clipboard!")
-  return clipboard.WriteAll(output)
+	file := file.File{}
+	if err := file.Open(args[0]); err != nil {
+		return err
+	}
+
+  confluence := confluence.Confluence{}
+	confluence.Convert(file.Data)
+	return util.Copy(confluence.Contents)
 }
 
 func init() {

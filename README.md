@@ -2,6 +2,7 @@
 md2confl is a CLI tool to convert the markdown text to confluence wiki format.
 
 ## Demo
+![](./demo.gif)
 
 ## Install
 ```
@@ -18,7 +19,8 @@ Usage:
 
 Available Commands:
   copy        Copy a confluence wiki text converted from markdown.
-  preview     Shows a confluence wiki text converted from markdown.
+  preview     Show a confluence wiki text converted from markdown.
+  version     Print the version number of md2confl
   help        Help about any command
 
 Flags:
