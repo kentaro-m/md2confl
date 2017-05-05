@@ -1,6 +1,8 @@
 package cmd
 
 import (
+	"errors"
+
 	"github.com/spf13/cobra"
 	"github.com/kentaro-m/md2confl/confluence"
 	"github.com/kentaro-m/md2confl/utils/file"
@@ -14,6 +16,11 @@ var previewCmd = &cobra.Command{
 }
 
 func preview(cmd *cobra.Command, args []string) error {
+
+	if len(args) > 1 {
+		return errors.New("Too many arguments.")
+	}
+
 	file := file.File{}
 	if err := file.Open(args[0]); err != nil {
 		return err

@@ -1,6 +1,8 @@
 package cmd
 
 import (
+	"errors"
+
 	"github.com/spf13/cobra"
 	"github.com/kentaro-m/md2confl/utils/util"
 	"github.com/kentaro-m/md2confl/utils/file"
@@ -15,6 +17,11 @@ var copyCmd = &cobra.Command{
 }
 
 func copy(cmd *cobra.Command, args []string) error {
+
+	if len(args) > 1 {
+		return errors.New("Too many arguments.")
+	}
+
 	file := file.File{}
 	if err := file.Open(args[0]); err != nil {
 		return err
