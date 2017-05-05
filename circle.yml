@@ -12,6 +12,7 @@ deployment:
   release:
     tag: /v[0-9]+\.[0-9]+\.[0-9]+/
     commands:
+      - go get github.com/inconshreveable/mousetrap
       - go get github.com/mitchellh/gox
       - go get github.com/tcnksm/ghr
       - gox -output "dist/{{.OS}}_{{.Arch}}_{{.Dir}}"
