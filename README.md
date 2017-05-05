@@ -8,7 +8,15 @@ md2confl is a CLI tool to convert the markdown text to confluence wiki format.
 ## Demo
 ![](./demo.gif)
 
-## Install
+## Installation
+
+### Homebrew
+```
+$ brew tap kentaro-m/homebrew-md2confl
+$ brew install md2confl
+```
+
+### Golang
 ```
 $ go get github.com/kentaro-m/md2confl
 ```
@@ -31,6 +39,24 @@ Flags:
   -h, --help   help for md2confl
 
 Use "md2confl [command] --help" for more information about a command.
+```
+
+## Example
+```
+$ md2confl copy ~/sample.md
+Copied to clipboard!
+
+$ md2confl preview ~/sample.md
+h1. Hello World
+
+{code:language=go}package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("Hello World")
+}
+{code}
 ```
 
 ## License
