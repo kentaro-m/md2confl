@@ -1,4 +1,8 @@
 # md2confl
+[![CircleCI](https://circleci.com/gh/kentaro-m/md2confl/tree/master.svg?style=shield)](https://circleci.com/gh/kentaro-m/md2confl/tree/master)
+[![GitHub release](https://img.shields.io/github/release/kentaro-m/md2confl.svg)](https://github.com/kentaro-m/md2confl/releases)
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/kentaro-m/md2confl/blob/master/LICENSE)
+
 md2confl is a CLI tool to convert the markdown text to confluence wiki format.
 
 ## Demo
