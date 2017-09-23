@@ -3,17 +3,17 @@ package cmd
 import (
 	"errors"
 
-	"github.com/spf13/cobra"
-	"github.com/kentaro-m/md2confl/utils/util"
-	"github.com/kentaro-m/md2confl/utils/file"
 	"github.com/kentaro-m/md2confl/confluence"
+	"github.com/kentaro-m/md2confl/utils/file"
+	"github.com/kentaro-m/md2confl/utils/util"
+	"github.com/spf13/cobra"
 )
 
 var copyCmd = &cobra.Command{
 	Use:   "copy [file path]",
 	Short: "Copy a confluence wiki text converted from markdown.",
-	Long: "Copy a confluence wiki text converted from markdown.",
-	RunE: copy,
+	Long:  "Copy a confluence wiki text converted from markdown.",
+	RunE:  copy,
 }
 
 func copy(cmd *cobra.Command, args []string) error {
@@ -27,7 +27,7 @@ func copy(cmd *cobra.Command, args []string) error {
 		return err
 	}
 
-  confluence := confluence.Confluence{}
+	confluence := confluence.Confluence{}
 	confluence.Convert(file.Data)
 	return util.Copy(confluence.Contents)
 }

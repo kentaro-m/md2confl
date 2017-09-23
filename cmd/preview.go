@@ -3,16 +3,16 @@ package cmd
 import (
 	"errors"
 
-	"github.com/spf13/cobra"
 	"github.com/kentaro-m/md2confl/confluence"
 	"github.com/kentaro-m/md2confl/utils/file"
+	"github.com/spf13/cobra"
 )
 
 var previewCmd = &cobra.Command{
 	Use:   "preview [file path]",
 	Short: "Show a confluence wiki text converted from markdown.",
-	Long: "Show a confluence wiki text converted from markdown.",
-	RunE: preview,
+	Long:  "Show a confluence wiki text converted from markdown.",
+	RunE:  preview,
 }
 
 func preview(cmd *cobra.Command, args []string) error {

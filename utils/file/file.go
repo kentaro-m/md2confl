@@ -1,29 +1,29 @@
 package file
 
 import (
-  "path/filepath"
-  "io/ioutil"
-  "errors"
+	"errors"
+	"io/ioutil"
+	"path/filepath"
 )
 
 type File struct {
-  Data []byte
+	Data []byte
 }
 
 func (f *File) Open(path string) error {
-    ext := filepath.Ext(path)
+	ext := filepath.Ext(path)
 
-    if ext != ".md" && ext != ".markdown" {
-      return errors.New("This file is not in markdown format.")
-    }
+	if ext != ".md" && ext != ".markdown" {
+		return errors.New("This file is not in markdown format.")
+	}
 
-    data, err := ioutil.ReadFile(path)
+	data, err := ioutil.ReadFile(path)
 
-    if err != nil {
-      return errors.New("Can't open this file.")
-    }
+	if err != nil {
+		return errors.New("Can't open this file.")
+	}
 
-    f.Data = data
+	f.Data = data
 
-    return nil
+	return nil
 }

@@ -12,9 +12,9 @@ const (
 )
 
 var RootCmd = &cobra.Command{
-	Use:   "md2confl",
-	Short: "md2confl - Convert markdown text to confluence wiki",
-	Long: "md2confl - Convert markdown text to confluence wiki",
+	Use:           "md2confl",
+	Short:         "md2confl - Convert markdown text to confluence wiki",
+	Long:          "md2confl - Convert markdown text to confluence wiki",
 	SilenceErrors: true,
 	SilenceUsage:  true,
 }
@@ -34,7 +34,7 @@ func Execute() {
 	}
 }
 
-func init()  {
+func init() {
 	cobra.EnableCommandSorting = false
 	RootCmd.AddCommand(versionCmd)
 }
