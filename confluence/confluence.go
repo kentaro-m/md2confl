@@ -3,25 +3,21 @@ package confluence
 import (
 	"fmt"
 
-	"github.com/kentaro-m/blackfriday"
+	bfconfluence "github.com/kentaro-m/blackfriday-confluence"
 )
 
+// Confluence is a type that implements the interface for confluence wiki output.
 type Confluence struct {
 	Contents string
 }
 
+// Convert renders confluence wiki text from markdown text.
 func (c *Confluence) Convert(input []byte) {
-	renderer := blackfriday.ConfluenceRenderer(0)
-	extensions := 0
-	extensions |= blackfriday.EXTENSION_FENCED_CODE
-	extensions |= blackfriday.EXTENSION_TABLES
-	extensions |= blackfriday.EXTENSION_STRIKETHROUGH
-	extensions |= blackfriday.EXTENSION_NO_EMPTY_LINE_BEFORE_BLOCK
-
-	output := blackfriday.Markdown(input, renderer, extensions)
+	output := bfconfluence.Run(input)
 	c.Contents = string(output)
 }
 
+// Preview displays confluence wiki document.
 func (c *Confluence) Preview() {
 	fmt.Println(c.Contents)
 }
