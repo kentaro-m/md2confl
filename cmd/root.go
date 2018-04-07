@@ -7,34 +7,24 @@ import (
 	"github.com/spf13/cobra"
 )
 
-const (
-	VERSION = "0.1.2"
-)
-
-var RootCmd = &cobra.Command{
+var rootCmd = &cobra.Command{
 	Use:           "md2confl",
-	Short:         "md2confl - Convert markdown text to confluence wiki",
-	Long:          "md2confl - Convert markdown text to confluence wiki",
+	Short:         "md2confl - Convert markdown text to confluence wiki text",
+	Long:          "md2confl - Convert markdown text to confluence wiki text",
 	SilenceErrors: true,
 	SilenceUsage:  true,
 }
 
-var versionCmd = &cobra.Command{
-	Use:   "version",
-	Short: "Print the version number of md2confl",
-	Long:  "Print the version number of md2confl",
-	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Printf("v%v\n", VERSION)
-	},
-}
-
+// Execute runs the root Cmd
 func Execute() {
-	if err := RootCmd.Execute(); err != nil {
+	if err := rootCmd.Execute(); err != nil {
 		fmt.Fprintf(os.Stdout, "Error: %v\n", err)
+		fmt.Fprintf(os.Stdout, "%v\n", rootCmd.UsageString())
 	}
 }
 
 func init() {
 	cobra.EnableCommandSorting = false
-	RootCmd.AddCommand(versionCmd)
+	rootCmd.AddCommand(convertCmd)
+	rootCmd.AddCommand(versionCmd)
 }

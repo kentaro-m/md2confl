@@ -23,16 +23,14 @@ $ go get github.com/kentaro-m/md2confl
 
 ## Usage
 ```
-$ md2confl help
-md2confl - Convert markdown text to confluence wiki
+md2confl - Convert markdown text to confluence wiki text
 
 Usage:
   md2confl [command]
 
 Available Commands:
-  copy        Copy a confluence wiki text converted from markdown.
-  preview     Show a confluence wiki text converted from markdown.
-  version     Print the version number of md2confl
+  convert     Output the confluence wiki text
+  version     Output the version number
   help        Help about any command
 
 Flags:
@@ -43,10 +41,8 @@ Use "md2confl [command] --help" for more information about a command.
 
 ## Example
 ```
-$ md2confl copy ~/sample.md
-Copied to clipboard!
-
-$ md2confl preview ~/sample.md
+# Output to the stdout
+$ md2confl convert ~/sample.md
 h1. Hello World
 
 {code:language=go}package main
@@ -57,6 +53,12 @@ func main() {
 	fmt.Println("Hello World")
 }
 {code}
+
+# Output to the file
+$ md2confl convert ~/sample.md > foo.txt
+
+# Copy to clipboard
+$ md2confl convert ~/sample.md | pbcopy
 ```
 
 ## License

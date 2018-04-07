@@ -17,7 +17,7 @@ func (c *Confluence) Convert(input []byte) {
 	c.Contents = string(output)
 }
 
-// Preview displays confluence wiki document.
-func (c *Confluence) Preview() {
+// Show displays confluence wiki document.
+func (c *Confluence) Show() {
 	fmt.Println(c.Contents)
 }
