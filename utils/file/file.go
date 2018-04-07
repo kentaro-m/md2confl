@@ -3,24 +3,19 @@ package file
 import (
 	"errors"
 	"io/ioutil"
-	"path/filepath"
 )
 
+// File is a type that implements the interface for a file data.
 type File struct {
 	Data []byte
 }
 
+// Open reads a file
 func (f *File) Open(path string) error {
-	ext := filepath.Ext(path)
-
-	if ext != ".md" && ext != ".markdown" {
-		return errors.New("This file is not in markdown format.")
-	}
-
 	data, err := ioutil.ReadFile(path)
 
 	if err != nil {
-		return errors.New("Can't open this file.")
+		return errors.New("Can't open a file")
 	}
 
 	f.Data = data
