@@ -24,11 +24,6 @@
 #   go-tests = true
 #   unused-packages = true
 
-
-[[constraint]]
-  branch = "master"
-  name = "github.com/atotto/clipboard"
-
 [[constraint]]
   branch = "master"
   name = "github.com/kentaro-m/blackfriday-confluence"
