@@ -28,10 +28,15 @@ workflows:
   version: 2
   build:
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              only: /.*/
   deploy:
     jobs:
       - deploy:
           filters:
+            branches:
+              ignore: /.*/
             tags:
               only: /v[0-9]+\.[0-9]+\.[0-9]+/
