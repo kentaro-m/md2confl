@@ -19,6 +19,7 @@ jobs:
           name: Deploy the project
           command: |
             go get -v -t -d ./...
+            go get github.com/inconshreveable/mousetrap
             go get github.com/mitchellh/gox
             go get github.com/tcnksm/ghr
             gox -output "pkg/{{.OS}}_{{.Arch}}_{{.Dir}}"
