@@ -11,7 +11,7 @@
   branch = "master"
   name = "github.com/kentaro-m/blackfriday-confluence"
   packages = ["."]
-  revision = "e6e56daa06baebab819ee7da7a77d86d1391b9d8"
+  revision = "776f3bedb899d0ba1b4375a00dca67d682ceb760"
 
 [[projects]]
   branch = "master"
@@ -35,7 +35,7 @@
   branch = "master"
   name = "golang.org/x/crypto"
   packages = ["ssh/terminal"]
-  revision = "d6449816ce06963d9d136eee5a56fca5b0616e7e"
+  revision = "e73bf333ef8920dbb52ad18d4bd38ad9d9bc76d7"
 
 [[projects]]
   branch = "master"
@@ -44,7 +44,7 @@
     "unix",
     "windows"
   ]
-  revision = "2281fa97ef7b0c26324634d5a22f04babdac8713"
+  revision = "79b0c6888797020a994db17c8510466c72fe75d9"
 
 [[projects]]
   name = "gopkg.in/russross/blackfriday.v2"
