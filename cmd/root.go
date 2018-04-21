@@ -86,5 +86,6 @@ func Execute() {
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Fprintf(os.Stdout, "Error: %v\n", err)
 		fmt.Fprintf(os.Stdout, "%v\n", rootCmd.UsageString())
+		os.Exit(1)
 	}
 }
