@@ -48,9 +48,7 @@ func Run(cmd *cobra.Command, args []string) error {
 			return err
 		}
 
-		confluence := confluence.Confluence{}
-		confluence.Convert(data)
-		confluence.Show()
+		output(data)
 
 		return nil
 	}
@@ -68,11 +66,15 @@ func Run(cmd *cobra.Command, args []string) error {
 		return err
 	}
 
-	confluence := confluence.Confluence{}
-	confluence.Convert(file.Data)
-	confluence.Show()
+	output(file.Data)
 
 	return nil
+}
+
+func output(input []byte) {
+	c := confluence.Confluence{}
+	c.Convert(input)
+	fmt.Fprint(os.Stdout, c.Contents())
 }
 
 func init() {
