@@ -6,7 +6,7 @@
 md2confl is a CLI tool to convert the markdown text to confluence wiki format.
 
 ## Demo
-![](./demo.gif)
+![](./usage.gif)
 
 ## Installation
 
@@ -40,7 +40,8 @@ Flags:
 $ md2confl ~/sample.md
 h1. Hello World
 
-{code:language=go}package main
+{code:language=go}
+package main
 
 import "fmt"
 
