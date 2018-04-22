@@ -2,16 +2,23 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/golang:1.9
+      - image: circleci/golang:1.10
     working_directory: /go/src/github.com/kentaro-m/md2confl
     steps:
       - checkout
       - run:
           name: Install dependencies
           command: go get -v -t -d ./...
+      - run:
+          name: Run linters
+          command: |
+            go get github.com/golang/lint/golint
+            golint ./...
+            go vet ./...
+
   deploy:
     docker:
-      - image: circleci/golang:1.9
+      - image: circleci/golang:1.10
     working_directory: /go/src/github.com/kentaro-m/md2confl
     steps:
       - checkout
@@ -23,7 +30,7 @@ jobs:
             go get github.com/mitchellh/gox
             go get github.com/tcnksm/ghr
             gox -output "pkg/{{.OS}}_{{.Arch}}_{{.Dir}}"
-            ghr -t $GITHUB_TOKEN -u $CIRCLE_PROJECT_USERNAME -r $CIRCLE_PROJECT_REPONAME --replace `git describe --tags` pkg/
+            ghr -t $GITHUB_TOKEN -u $CIRCLE_PROJECT_USERNAME -r $CIRCLE_PROJECT_REPONAME --replace `git describe --abbrev=0 --tags` pkg/
 
 workflows:
   version: 2
