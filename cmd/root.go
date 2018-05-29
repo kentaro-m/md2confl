@@ -34,7 +34,7 @@ var rootCmd = &cobra.Command{
 // Run executes md2confl command
 func Run(cmd *cobra.Command, args []string) error {
 
-	if cmd.Flag("version").Changed {
+	if version {
 		fmt.Fprintf(os.Stdout, "v%v\n", VERSION)
 		return nil
 	}
