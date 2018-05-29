@@ -15,7 +15,7 @@ func (f *File) Open(path string) error {
 	data, err := ioutil.ReadFile(path)
 
 	if err != nil {
-		return errors.New("Can't open a file")
+		return errors.New("can't open a file")
 	}
 
 	f.Data = data

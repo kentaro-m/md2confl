@@ -54,9 +54,9 @@ func Run(cmd *cobra.Command, args []string) error {
 
 	switch {
 	case len(args) == 0:
-		return errors.New("File path not found")
+		return errors.New("file path not found")
 	case len(args) > 1:
-		return errors.New("Too many arguments")
+		return errors.New("too many arguments")
 	}
 
 	// Input from the file
@@ -84,7 +84,7 @@ func init() {
 // Execute runs the root Cmd
 func Execute() {
 	if err := rootCmd.Execute(); err != nil {
-		fmt.Fprintf(os.Stdout, "Error: %v\n", err)
+		fmt.Fprintf(os.Stdout, "error: %v\n", err)
 		fmt.Fprintf(os.Stdout, "%v\n", rootCmd.UsageString())
 		os.Exit(1)
 	}
