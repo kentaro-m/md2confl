@@ -84,8 +84,8 @@ func init() {
 // Execute runs the root Cmd
 func Execute() {
 	if err := rootCmd.Execute(); err != nil {
-		fmt.Fprintf(os.Stdout, "error: %v\n", err)
-		fmt.Fprintf(os.Stdout, "%v\n", rootCmd.UsageString())
+		fmt.Fprintf(os.Stderr, "error: %v\n", err)
+		fmt.Fprintf(os.Stderr, "%v\n", rootCmd.UsageString())
 		os.Exit(1)
 	}
 }
