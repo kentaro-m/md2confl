@@ -20,7 +20,6 @@ const (
 
 var (
 	version bool
-	help    bool
 )
 
 var rootCmd = &cobra.Command{
@@ -35,7 +34,7 @@ var rootCmd = &cobra.Command{
 // Run executes md2confl command
 func Run(cmd *cobra.Command, args []string) error {
 
-	if cmd.Flag("version").Changed {
+	if version {
 		fmt.Fprintf(os.Stdout, "v%v\n", VERSION)
 		return nil
 	}
@@ -55,9 +54,9 @@ func Run(cmd *cobra.Command, args []string) error {
 
 	switch {
 	case len(args) == 0:
-		return errors.New("File path not found")
+		return errors.New("file path not found")
 	case len(args) > 1:
-		return errors.New("Too many arguments")
+		return errors.New("too many arguments")
 	}
 
 	// Input from the file
@@ -80,14 +79,13 @@ func output(input []byte) {
 func init() {
 	cobra.EnableCommandSorting = false
 	rootCmd.Flags().BoolVarP(&version, "version", "v", false, "Output the version number")
-	rootCmd.Flags().BoolVarP(&help, "help", "h", false, "Output usage information")
 }
 
 // Execute runs the root Cmd
 func Execute() {
 	if err := rootCmd.Execute(); err != nil {
-		fmt.Fprintf(os.Stdout, "Error: %v\n", err)
-		fmt.Fprintf(os.Stdout, "%v\n", rootCmd.UsageString())
+		fmt.Fprintf(os.Stderr, "error: %v\n", err)
+		fmt.Fprintf(os.Stderr, "%v\n", rootCmd.UsageString())
 		os.Exit(1)
 	}
 }
