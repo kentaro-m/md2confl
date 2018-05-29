@@ -20,7 +20,6 @@ const (
 
 var (
 	version bool
-	help    bool
 )
 
 var rootCmd = &cobra.Command{
@@ -80,7 +79,6 @@ func output(input []byte) {
 func init() {
 	cobra.EnableCommandSorting = false
 	rootCmd.Flags().BoolVarP(&version, "version", "v", false, "Output the version number")
-	rootCmd.Flags().BoolVarP(&help, "help", "h", false, "Output usage information")
 }
 
 // Execute runs the root Cmd
