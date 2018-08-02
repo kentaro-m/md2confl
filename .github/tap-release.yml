@@ -1,0 +1,14 @@
+tap: kentaro-m/homebrew-md2confl/md2confl.rb
+template: >
+  class Md2confl < Formula
+    desc     "$REPO_DESCRIPTION"
+    homepage "$REPO_WEBSITE"
+    version  "$STABLE_VERSION"
+    url      "https://github.com/kentaro-m/md2confl/releases/download/$VERSION/darwin_amd64_md2confl"
+    sha256   "$STABLE_ASSET_SHA256"
+
+    def install
+      system "mv", "darwin_amd64_md2confl", "md2confl"
+      bin.install "md2confl"
+    end
+  end
