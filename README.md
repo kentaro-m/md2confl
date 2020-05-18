@@ -18,7 +18,7 @@ $ brew install md2confl
 
 ### Golang
 ```
-$ go get github.com/kentaro-m/md2confl
+$ GO111MODULE=on go get github.com/kentaro-m/md2confl
 ```
 
 ## Usage
