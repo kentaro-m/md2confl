@@ -10,7 +10,7 @@ import (
 	"github.com/kentaro-m/md2confl/confluence"
 	"github.com/kentaro-m/md2confl/utils/file"
 	"github.com/spf13/cobra"
-	"golang.org/x/crypto/ssh/terminal"
+	"golang.org/x/term"
 )
 
 // Current version number
@@ -40,7 +40,7 @@ func Run(cmd *cobra.Command, args []string) error {
 	}
 
 	// Input from stdin
-	if !terminal.IsTerminal(int(syscall.Stdin)) {
+	if !term.IsTerminal(int(syscall.Stdin)) {
 		data, err := ioutil.ReadAll(os.Stdin)
 
 		if err != nil {
