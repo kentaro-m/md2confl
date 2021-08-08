@@ -13,6 +13,7 @@ import (
 	"golang.org/x/term"
 )
 
+//nolint // these variables are set in build step
 var (
 	version = "dev"
 	commit  = "none"
