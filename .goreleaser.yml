@@ -8,6 +8,8 @@ builds:
       - linux
       - windows
       - darwin
+    ldflags:
+      - -s -w -X github.com/kentaro-m/md2confl/cmd.version={{.Version}} -X github.com/kentaro-m/md2confl/cmd.commit={{.Commit}} -X github.com/kentaro-m/md2confl/cmd.date={{.Date}} -X github.com/kentaro-m/md2confl/cmd.builtBy=goreleaser
 archives:
   - replacements:
       darwin: Darwin
