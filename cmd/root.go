@@ -13,13 +13,16 @@ import (
 	"golang.org/x/term"
 )
 
-// Current version number
-const (
-	VERSION = "0.2.0"
+//nolint // these variables are set in build step
+var (
+	version = "dev"
+	commit  = "none"
+	date    = "unknown"
+	builtBy = "unknown"
 )
 
 var (
-	version bool
+	isShowVersion bool
 )
 
 var rootCmd = &cobra.Command{
@@ -34,8 +37,8 @@ var rootCmd = &cobra.Command{
 // Run executes md2confl command
 func Run(cmd *cobra.Command, args []string) error {
 
-	if version {
-		fmt.Fprintf(os.Stdout, "v%v\n", VERSION)
+	if isShowVersion {
+		fmt.Fprintf(os.Stdout, "v%v\n", version)
 		return nil
 	}
 
@@ -78,7 +81,7 @@ func output(input []byte) {
 
 func init() {
 	cobra.EnableCommandSorting = false
-	rootCmd.Flags().BoolVarP(&version, "version", "v", false, "Output the version number")
+	rootCmd.Flags().BoolVarP(&isShowVersion, "version", "v", false, "Output the version number")
 }
 
 // Execute runs the root Cmd
