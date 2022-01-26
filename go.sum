@@ -97,6 +97,8 @@ github.com/jtolds/gls v4.20.0+incompatible/go.mod h1:QJZ7F/aHp+rZTRtaJ1ow/lLfFfV
 github.com/julienschmidt/httprouter v1.2.0/go.mod h1:SYymIcj16QtmaHHD7aYtjjsJG7VTCxuUUipMqKk8s4w=
 github.com/kentaro-m/blackfriday-confluence v0.0.0-20200514101926-773172e7101d h1:sPrh5gaD/VlNBr5yEbwhMxHOOcalHneN30tfXnHTYCs=
 github.com/kentaro-m/blackfriday-confluence v0.0.0-20200514101926-773172e7101d/go.mod h1:zjuRVWzEu6vFREk0vbFj6P1pKji/mU73UpQ0MA9BOSo=
+github.com/kentaro-m/blackfriday-confluence v0.0.0-20220126124413-8e85477b49b3 h1:BCMUqjR9XyAWI5JVSJpQFQR1iYYHvwcVuapyqAAuHtE=
+github.com/kentaro-m/blackfriday-confluence v0.0.0-20220126124413-8e85477b49b3/go.mod h1:zjuRVWzEu6vFREk0vbFj6P1pKji/mU73UpQ0MA9BOSo=
 github.com/kisielk/errcheck v1.1.0/go.mod h1:EZBBE59ingxPouuu3KfxchcWSUPOHkagtvWXihfKN4Q=
 github.com/kisielk/gotool v1.0.0/go.mod h1:XhKaO+MFFWcvkIS/tQcRk01m1F5IRFswLeQ+oQHNcck=
 github.com/konsorten/go-windows-terminal-sequences v1.0.1/go.mod h1:T0+1ngSBFLxvqU3pZ+m/2kptfBszLMUkC4ZK/EgS/cQ=
