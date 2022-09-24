@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"bytes"
 	"errors"
 	"fmt"
 	"io/ioutil"
@@ -13,7 +14,7 @@ import (
 	"golang.org/x/term"
 )
 
-//nolint // these variables are set in build step
+// nolint // these variables are set in build step
 var (
 	version = "dev"
 	commit  = "none"
@@ -50,9 +51,10 @@ func Run(cmd *cobra.Command, args []string) error {
 			return err
 		}
 
-		output(data)
-
-		return nil
+		if len(bytes.TrimSpace(data)) > 0 {
+			output(data)
+			return nil
+		}
 	}
 
 	switch {
